@@ -48,11 +48,27 @@ for id in tqdm(range(len(data))):
         'EMAIL2', 'PHONE', 'ADDRESS', 'COUNTRY', 'SHORT_INTRO', 'GENDER', 'DSSG_AT', 'UNIVERSITY', 'UNI_COUNTRY',
         'MAJOR', 'LEVEL', 'YEAR', 'GRADUATION']
     write_section(A)
+
+    # Hide the URL for CV in a link since most of them are long
+    link = str(data.iloc[id][fields['CV']])
+    f.write("**"+fields['CV']+"** : ")
+    if link != 'nan':
+        f.write("[click here](")
+        f.write(link)
+        f.write(')\n\n')
+    else:
+        f.write('nan\n\n')
     # Hide the URL for transcripts in a link since most of them are long
+    link = str(data.iloc[id][fields['TRANSCRIPTS']])
     f.write("**"+fields['TRANSCRIPTS']+"** : ")
-    f.write("[click here](")
-    f.write(str(data.iloc[id][fields['TRANSCRIPTS']]))
-    f.write(')\n\n')
+    if link != 'nan':
+        f.write("[click here](")
+        f.write(link)
+        f.write(')\n\n')
+    else:
+        f.write('nan\n\n')
+
+
 
     f.write("## Expertise:\n\n")
     A = ['PROGRAMMING', 'CS-ALGORITHMS', 'STATS','ML','SOCSCI','REAL_WORLD','EXPT_DESIGN','ETL', 'VISUALISATION']
