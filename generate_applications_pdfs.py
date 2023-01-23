@@ -96,7 +96,7 @@ for id in tqdm(range(len(data))):
     write_section(A)
 
     f.write("## Interests, teamwork and motivation:\n\n")
-    A = ['PROJECTS', 'GITHUB', 'MOTIVATION', 'TEAMWORK_EXP', 'FUTURE']
+    A = ['PROJECTS', 'GITHUB', 'MOTIVATION', 'TEAMWORK_EXP', 'FUTURE', 'ANYTHING_ELSE']
     write_section(A)
 
     f.close()
